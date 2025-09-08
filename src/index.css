@@ -1,3 +1,32 @@
+@import "tailwindcss";
+
 :root {
-	background-color: #213547;
+	/* Theme colors */
+	--theme-dark: #102820;
+	--theme-dark-green: #2f4638;
+	--theme-green: #588157;
+	--theme-beige: #dad7cd;
+	--theme-light-green: #a3b18a;
+
+	background: var(--theme-dark);
+	color: var(--theme-beige);
+
+	width: 100vw;
+	height: 100vh;
+
+	body {
+		height: 100%;
+	}
+
+	h1 {
+		font-size: 8rem;
+		line-height: 1em;
+		color: var(--theme-light-green);
+	}
+
+	.content {
+		width: calc(100vw - calc(var(--spacing) * 20));
+	}
+
+	overflow-x: hidden;
 }
