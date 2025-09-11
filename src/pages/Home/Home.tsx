@@ -1,9 +1,11 @@
+import AboutMe from "../../sections/AboutMe/AboutMe";
 import Me from "../../sections/Me/Me";
 
 function Home() {
 	return (
-		<div>
+		<div className="px-40" style={{ fontFamily: "Prata" }}>
 			<Me />
+			<AboutMe />
 		</div>
 	);
 }

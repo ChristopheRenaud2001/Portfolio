@@ -7,13 +7,21 @@ import NavItem from "./NavItem/NavItem";
 
 export default function Header() {
 	return (
-		<header className="h-full header-bg p-4 content-center place-items-center w-20 fixed">
+		<header className="fixed h-screen header-bg px-4 content-center place-items-center w-20">
 			<nav className="w-fit">
 				<ul>
-					<NavItem icon={IoPerson} />
-					<NavItem icon={TiInfoLarge} />
-					<NavItem icon={FaCode} />
-					<NavItem icon={IoMail} />
+					<NavItem
+						icon={IoPerson}
+						label="Me"
+						onClick={() => (window.location.href = "#me")}
+					/>
+					<NavItem
+						icon={TiInfoLarge}
+						label="About Me"
+						onClick={() => (window.location.href = "#about-me")}
+					/>
+					<NavItem icon={FaCode} label="Project" />
+					<NavItem icon={IoMail} label="Contant Me" />
 				</ul>
 			</nav>
 		</header>
