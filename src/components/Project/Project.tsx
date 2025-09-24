@@ -1,5 +1,6 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import SlideShow from "../SlideShow/SlideShow";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import "./project.css";
 
 export default function Project(props: {
@@ -7,50 +8,33 @@ export default function Project(props: {
 	title: string;
 	images?: string[];
 }) {
-	const [isHovered, setIsHovered] = useState(false);
-	const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-	const handleMouseEnter = () => {
-		// Clear any existing timeout (if user re-enters quickly)
-		if (timeoutRef.current) {
-			clearTimeout(timeoutRef.current);
-		}
-		setIsHovered(true);
-	};
-
-	const handleMouseLeave = () => {
-		// Delay the retraction
-		timeoutRef.current = setTimeout(() => {
-			setIsHovered(false);
-		}, 3500); // 300ms delay before collapsing
-	};
+	const [open, setOpen] = useState<boolean>(false);
 	return (
-		<div
-			className="relative border-corner my-10 group"
-			onMouseEnter={handleMouseEnter}
-			onMouseLeave={handleMouseLeave}
-		>
-			<div className="p-4">
-				<h3 className="text-2xl border-corner text-center cursor-pointer w-fit place-self-center">
+		<div className="relative border-corner my-10 group">
+			<div className="p-4 place-items-center">
+				<div className="flex w-fit">
+					<h3 className="flex-none text-2xl border-corner cursor-pointer w-fit">
+						<button
+							className="flex-1 ms-4 cursor-pointer"
+							onClick={() => setOpen((prevOpen) => !prevOpen)}
+						>
+							{props.title}
+
+							<span className="block custom-underline w-full h-0.5 trasition-all ease-in-out duration-800 max-w-0 group-hover:max-w-full" />
+						</button>
+					</h3>
 					{!!props.link && (
-						<>
-							<a href={props.link} target="_blank">
-								{props.title}
-							</a>
-							<span className="flex custom-underline w-auto h-0.5 trasition-all ease-in-out duration-800 max-w-0 group-hover:max-w-full" />
-						</>
+						<a className="ms-4 self-center" href={props.link} target="_blank">
+							<FaExternalLinkAlt className="w-5 h-5" />
+						</a>
 					)}
-					{!props.link && <>{props.title}</>}
-				</h3>
+				</div>
+
 				<div
-					className={`w-full transition-all ease-in-out duration-800 overflow-hidden place-self-center ${isHovered ? "max-h-100" : "max-h-0"}`}
+					className={`w-full transition-all ease-in-out duration-800 overflow-hidden place-self-center ${open ? "h-100" : "h-0"}`}
 				>
 					{!!props.images && props.images.length > 0 && (
-						<SlideShow
-							images={props.images}
-							isHovered={isHovered}
-							title={props.title}
-						/>
+						<SlideShow images={props.images} open={open} title={props.title} />
 					)}
 				</div>
 			</div>

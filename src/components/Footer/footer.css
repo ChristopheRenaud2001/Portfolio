@@ -1,4 +1,9 @@
 footer,
 hr {
 	width: calc(100vw - calc(var(--spacing) * 20));
+	background-color: #171717;
+}
+
+hr {
+	color: #171717;
 }

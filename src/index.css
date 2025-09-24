@@ -4,7 +4,7 @@
 	/* Theme colors */
 	--theme-dark: #102820;
 	--theme-dark-green: #2f4638;
-	--theme-green: #588157;
+	--theme-green: #c7a98a;
 	--theme-beige: #dad7cd;
 	--theme-light-green: #a3b18a;
 
@@ -20,6 +20,10 @@
 		height: 100%;
 	}
 
+	body.modal-open {
+		overflow: hidden;
+	}
+
 	h1 {
 		font-size: clamp(0.5rem, calc(12vw + 1rem), 10rem);
 		line-height: 1em;
@@ -29,7 +33,7 @@
 	h2,
 	h3,
 	a {
-		color: var(--theme-light-green);
+		color: #c7a98a;
 	}
 
 	.content {
@@ -38,5 +42,9 @@
 
 	.cursor {
 		display: none;
+	}
+
+	svg {
+		fill: var(--theme-beige);
 	}
 }

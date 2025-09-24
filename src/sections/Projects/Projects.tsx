@@ -33,7 +33,7 @@ import {
 
 function Projects() {
 	return (
-		<div className="h-screen content-center" id="projects">
+		<div className="content-center" id="projects">
 			<h2 className="text-4xl font-bold">Projects</h2>
 			<Project
 				link="https://irap-qaadmin.epsi-inc.com/"
