@@ -14,6 +14,9 @@ type Pages = {
   "/": {
     params: {};
   };
+  "/portfolio-of-chris": {
+    params: {};
+  };
   "/.well-known/appspecific/com.chrome.devtools.json": {
     params: {};
   };
@@ -22,11 +25,11 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/.well-known/appspecific/com.chrome.devtools.json";
+    page: "/" | "/portfolio-of-chris" | "/.well-known/appspecific/com.chrome.devtools.json";
   };
   "./pages/Home/Home.tsx": {
     id: "pages/Home/Home";
-    page: "/";
+    page: "/portfolio-of-chris";
   };
   "pages/debug-null.tsx": {
     id: "pages/debug-null";

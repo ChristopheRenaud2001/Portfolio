@@ -6,7 +6,7 @@
 import { type RouteConfig, index, route } from "@react-router/dev/routes";
 
 export default [
-	index("./pages/Home/Home.tsx"),
+	route("/portfolio-of-chris", "./pages/Home/Home.tsx"),
 	route(
 		"/.well-known/appspecific/com.chrome.devtools.json",
 		"pages/debug-null.tsx"
